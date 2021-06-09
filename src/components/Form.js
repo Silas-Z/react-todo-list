@@ -3,12 +3,13 @@ import React, { useState } from "react";
 
 function Form (props){
 
-    const [name, setName] = useState('你想要做什么？');
+    const [name, setName] = useState('');
 
     function handleChange(e) {
         setName(e.target.value);
     }
 
+    
     function handleSubmit(e) {
         e.preventDefault();
         if(name!==""){
@@ -17,6 +18,8 @@ function Form (props){
         }
 
     }
+
+
         
     return(
         <form onSubmit={handleSubmit}>
