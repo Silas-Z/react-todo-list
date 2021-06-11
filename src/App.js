@@ -12,7 +12,7 @@ function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
 
   const taskList = tasks.map(task => (
-    <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} toggleTaskCompleted={toggleTaskCompleted} />
+    <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} toggleTaskCompleted={toggleTaskCompleted} deleteTask={deleteTask} />
   ));
 
   function addTask(name) {
@@ -36,6 +36,12 @@ function App(props) {
       return task;
     });
     setTasks(updatedTasks);
+  }
+
+
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter(task => id !== task.id);
+    setTasks(remainingTasks);
   }
 
   return (
